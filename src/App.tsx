@@ -8,7 +8,15 @@ import Footer from './components/Footer'
 
 function App() {
   const currentYear = new Date().getFullYear()
-  const [year, setYear] = useState<number>(currentYear - 1)
+  const initialYearFromUrl = (() => {
+    try {
+      const sp = new URLSearchParams(window.location.search)
+      const y = Number(sp.get('year'))
+      if (!Number.isNaN(y) && y > 1800 && y < 3000) return y
+    } catch { /* ignore */ }
+    return currentYear - 1
+  })()
+  const [year, setYear] = useState<number>(initialYearFromUrl)
   const [speech, setSpeech] = useState<Speech | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -47,6 +55,17 @@ function App() {
 
   const quickYears = useMemo(() => availableYears, [availableYears])
 
+  const setYearAndUrl = (y: number) => {
+    setYear(y)
+    try {
+      const url = new URL(window.location.href)
+      url.searchParams.set('year', String(y))
+      window.history.pushState({}, '', url)
+    } catch {
+      /* ignore */
+    }
+  }
+
   useEffect(() => {
     let cancelled = false
     async function load() {
@@ -79,7 +98,7 @@ function App() {
     const fd = new FormData(form)
     const y = Number(fd.get('year'))
     if (!Number.isNaN(y) && y > 1800 && y < 3000) {
-      setYear(y)
+      setYearAndUrl(y)
     }
   }
 
@@ -89,7 +108,7 @@ function App() {
       <Header/>
 
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-3xl px-6 pb-24 pt-10">
-        <QuickYears years={quickYears} selected={year} onSelect={setYear} />
+        <QuickYears years={quickYears} selected={year} onSelect={setYearAndUrl} />
 
         <SpeechCard loading={loading} error={error} speech={speech} year={year} />
 
