@@ -112,6 +112,34 @@ function App() {
 
         <SpeechCard loading={loading} error={error} speech={speech} year={year} />
 
+        <section className="mt-10 grid gap-4 sm:grid-cols-2" aria-label="Kultur og anbefalinger">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <h2 className="text-sm font-semibold text-royal-ink">Dansk kultur</h2>
+            <p className="mt-2 text-sm text-neutral-700">
+              Elsker du dansk kultur? Dyk ned i traditioner, højtider og historier, der binder os sammen.
+              Besøg <a className="underline hover:text-royal-primary" href="https://www.denmark.dk/people-and-culture" target="_blank" rel="noopener">Denmark.dk</a> eller
+              <a className="underline hover:text-royal-primary ml-1" href="https://www.kongehuset.dk/" target="_blank" rel="noopener">Kongehuset</a>.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <h2 className="text-sm font-semibold text-royal-ink">Se nytårstaler fra andre år</h2>
+            <p className="mt-2 text-sm text-neutral-700">Udforsk arkivet og genhør tidligere taler.</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {availableYears.filter((y) => y !== year).slice(0, 6).map((y2) => (
+                <button
+                  key={y2}
+                  onClick={() => setYearAndUrl(y2)}
+                  className="rounded-full border border-neutral-300 bg-white px-3 py-1 text-xs text-neutral-800 shadow-sm hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-royal-accent/40"
+                  aria-label={`Åbn nytårstalen fra ${y2}`}
+                  title={`Åbn ${y2}`}
+                >
+                  {y2}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <YearForm defaultYear={year} onSubmit={onSubmit} className="mt-10 sm:hidden" />
       </main>
 
