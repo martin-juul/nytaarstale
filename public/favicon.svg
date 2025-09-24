@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kongekrone">
+  <title>Kongekrone – Nytårstalen</title>
+  <!-- Royal red background -->
+  <circle cx="32" cy="32" r="30" fill="#8B0F26"/>
+  <!-- Crown -->
+  <path d="M12 40 L18 24 L28 34 L32 20 L36 34 L46 24 L52 40 Z" fill="#D4AF37"/>
+  <!-- Crown base -->
+  <rect x="12" y="40" width="40" height="8" rx="2" fill="#C49A2E"/>
+  <!-- Jewels -->
+  <circle cx="18" cy="38" r="2" fill="#F6E27F"/>
+  <circle cx="32" cy="36" r="2.5" fill="#FFF3B0"/>
+  <circle cx="46" cy="38" r="2" fill="#F6E27F"/>
+</svg>
