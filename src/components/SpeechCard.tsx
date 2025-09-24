@@ -1,4 +1,5 @@
 import type { Speech } from '../types'
+import ShareButtons from './ShareButtons'
 
 export type SpeechCardProps = {
   loading: boolean
@@ -36,6 +37,7 @@ export default function SpeechCard({ loading, error, speech, year }: SpeechCardP
             <h1 id={`speech-title-${year}`} className="mt-1 text-3xl font-semibold leading-tight text-royal-ink">{speech.title}</h1>
             <div className="mt-1 text-neutral-600">Af {speech.monarch}</div>
           </header>
+          <ShareButtons year={year} title={speech.title} monarch={speech.monarch} className="mb-4" />
           <div className="space-y-5 text-[17px] leading-8 text-neutral-800">
             {speech.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
