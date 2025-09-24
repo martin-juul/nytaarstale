@@ -12,7 +12,7 @@ export default function Header({ brand }: HeaderProps) {
           <div className="h-8 w-8 rounded-lg bg-royal-primary" aria-hidden />
           <div className="leading-tight">
             <div className="text-xs uppercase tracking-wide text-neutral-500">Kongeriget Danmark</div>
-            <div className="text-base font-semibold text-royal-ink">Nytårstalen</div>
+            <div className="text-base font-semibold text-royal-ink">Nytårstale.dk</div>
           </div>
           {brand}
         </div>
