@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
-/* Base Apple-like typography and DK palette */
+/* Kongehuset-inspired palette and base typography */
 :root {
-  --dk-red: #C8102E;
+  --royal-primary: #8B0F26;
+  --royal-primary-dark: #6E0A1F;
+  --royal-accent: #C5A46D;
+  --royal-ink: #1C2431;
+  --royal-paper: #F7F4EF;
 }
 
 @layer base {
@@ -13,9 +17,10 @@
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", system-ui, sans-serif;
-    background-color: #fafafa;
+    background-color: var(--royal-paper);
+    color: var(--royal-ink);
   }
   ::selection {
-    background: color-mix(in oklab, var(--dk-red) 30%, white);
+    background: color-mix(in oklab, var(--royal-primary) 25%, white);
   }
 }
