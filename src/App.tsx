@@ -85,9 +85,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-royal-paper text-royal-ink">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:shadow" >Spring til indhold</a>
       <Header/>
 
-      <main className="mx-auto max-w-3xl px-6 pb-24 pt-10">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-3xl px-6 pb-24 pt-10">
         <QuickYears years={quickYears} selected={year} onSelect={setYear} />
 
         <SpeechCard loading={loading} error={error} speech={speech} year={year} />

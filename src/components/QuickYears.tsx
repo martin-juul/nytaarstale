@@ -6,7 +6,7 @@ export type QuickYearsProps = {
 
 export default function QuickYears({ years, selected, onSelect }: QuickYearsProps) {
   return (
-    <section className="mb-6 flex flex-wrap gap-2">
+    <section className="mb-6 flex flex-wrap gap-2" aria-label="Hurtigvalg af år">
       {years.map((y) => (
         <button
           key={y}
